@@ -1,0 +1,2894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ambreen Kitchen | Homemade Food</title>
+
+<style>
+:root {
+    --bg: #11120f;
+    --panel: #1b1c17;
+    --text: #f8f3e8;
+    --muted: #c0bbad;
+    --gold: #e8b85b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+.container {
+    width: min(1160px, calc(100% - 36px));
+    margin: auto;
+}
+
+/* TOP BAR */
+
+.announcement {
+    background: var(--gold);
+    color: #17150f;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* NAVIGATION */
+
+header {
+    background: #11120f;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+.nav {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.brand small {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    color: var(--muted);
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: #17150f;
+}
+
+.btn-outline {
+    border-color: #666;
+}
+
+.menu-toggle {
+    display: none;
+    background: var(--panel);
+    color: white;
+    padding: 9px 12px;
+    border: 1px solid #444;
+    border-radius: 10px;
+}
+
+/* HERO SECTION */
+
+.hero {
+    padding: 75px 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: clamp(42px, 5.5vw, 74px);
+    line-height: 1.08;
+    margin: 20px 0;
+}
+
+h1 span {
+    color: var(--gold);
+}
+
+.hero-copy {
+    color: var(--muted);
+    font-size: 18px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 28px 0;
+}
+
+.trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.trust-row strong {
+    display: block;
+    color: white;
+    font-size: 15px;
+}
+
+.hero-visual {
+    position: relative;
+    min-height: 420px;
+}
+
+.hero-photo {
+    position: absolute;
+    inset: 0 10px 20px 10px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.stamp {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    background: var(--gold);
+    color: #17150f;
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    font-weight: bold;
+}
+
+.floating-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: var(--panel);
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 15px;
+}
+
+.stars {
+    color: var(--gold);
+}
+
+.floating-card small {
+    display: block;
+    color: var(--muted);
+}
+
+/* GENERAL SECTIONS */
+
+section {
+    padding: 65px 0;
+}
+
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.section-head h2,
+.story-copy h2 {
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.15;
+    margin-top: 10px;
+}
+
+.section-head p,
+.feature p,
+.food-info p,
+.story-copy p {
+    color: var(--muted);
+}
+
+.section-head p {
+    max-width: 450px;
+}
+
+/* FEATURES */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.feature {
+    background: var(--panel);
+    border: 1px solid #333;
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.feature-icon {
+    font-size: 28px;
+    color: var(--gold);
+}
+
+.feature h3 {
+    margin: 10px 0;
+}
+
+/* MENU */
+
+#menu {
+    background: #151612;
+    border-block: 1px solid #333;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.menu-search {
+    margin-bottom: 18px;
+}
+
+.menu-search input {
+    width: 100%;
+    max-width: 480px;
+    padding: 13px 16px;
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid #444;
+    border-radius: 12px;
+    font: inherit;
+}
+
+.menu-search input:focus {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.menu-empty {
+    margin: 0 0 24px;
+    color: var(--muted);
+}
+
+.filter-btn {
+    background: var(--panel);
+    color: var(--muted);
+    border: 1px solid #444;
+    border-radius: 25px;
+    padding: 10px 16px;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--gold);
+    color: #17150f;
+    border-color: var(--gold);
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.food-card {
+    background: var(--panel);
+    border: 1px solid #333;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.food-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.food-image {
+    height: 210px;
+    overflow: hidden;
+    background: #25251f;
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.food-card:hover .food-image img {
+    transform: scale(1.06);
+}
+
+.food-info {
+    padding: 18px;
+}
+
+.food-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.food-info h3 {
+    font-size: 17px;
+}
+
+.price {
+    color: var(--gold);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.food-info p {
+    font-size: 14px;
+    margin: 10px 0 16px;
+}
+
+.food-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.order-link {
+    color: var(--gold);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.note {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* ABOUT */
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.story-photo {
+    height: 370px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.story-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-copy p {
+    margin: 17px 0;
+}
+
+.check-list {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.check-list li {
+    margin: 9px 0;
+}
+
+.check-list li::before {
+    content: "✓";
+    color: var(--gold);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* CONTACT */
+
+.contact-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    background: var(--gold);
+    color: #17150f;
+    border-radius: 25px;
+    padding: 35px;
+}
+
+.contact-panel h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.2;
+}
+
+.contact-panel p {
+    margin-top: 10px;
+}
+
+.contact-panel .btn {
+    background: #17150f;
+    color: white;
+    white-space: nowrap;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 28px 0;
+    border-top: 1px solid #333;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer strong,
+.to-top {
+    color: var(--gold);
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+    .hero-grid,
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-visual {
+        min-height: 380px;
+    }
+}
+
+@media (max-width: 650px) {
+    .container {
+        width: calc(100% - 28px);
+    }
+
+    .nav {
+        min-height: 72px;
+    }
+
+    .brand {
+        font-size: 15px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        padding: 20px;
+        background: #171813;
+        flex-direction: column;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav > .btn {
+        display: none;
+    }
+
+    .hero {
+        padding: 45px 0;
+    }
+
+    .hero-visual {
+        min-height: 310px;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .section-head {
+        display: block;
+    }
+
+    .section-head p {
+        margin-top: 12px;
+    }
+
+    .features,
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .food-image {
+        height: 220px;
+    }
+
+    .story-photo {
+        height: 280px;
+    }
+
+    .contact-panel {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="announcement">
+    HOMEMADE WITH LOVE · FRESH FOOD DAILY · KARACHI
+</div>
+
+<header>
+    <div class="container nav">
+
+        <a class="brand" href="#home">
+            AMBREEN KITCHEN
+            <small>HOMEMADE PAKISTANI FOOD</small>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle">
+            ☰ Menu
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#menu">Our Menu</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <a class="btn btn-gold" href="#menu">
+            Explore Menu ↗
+        </a>
+
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="container hero-grid">
+
+        <div>
+            <div class="eyebrow">Ghar jaisa zaiqa</div>
+
+            <h1>
+                Homemade food.<br>
+                <span>Made with love.</span>
+            </h1>
+
+            <p class="hero-copy">
+                Enjoy the comfort of ghar ka khana!
+                Fresh Pakistani meals, traditional spices
+                and homestyle flavours prepared with care.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#menu" class="btn btn-gold">
+                    View Our Menu →
+                </a>
+
+                <a href="#about" class="btn btn-outline">
+                    Our Kitchen
+                </a>
+            </div>
+
+            <div class="trust-row">
+                <div>
+                    <strong>Homemade</strong>
+                    Ghar jaisa zaiqa
+                </div>
+
+                <div>
+                    <strong>Fresh Daily</strong>
+                    Made with care
+                </div>
+
+                <div>
+                    <strong>Easy Ordering</strong>
+                    Via WhatsApp
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+
+            <div class="hero-photo">
+                <img
+                    src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85"
+                    alt="Homemade food">
+            </div>
+
+            <div class="stamp">
+                GHAR KA<br>
+                KHANA ✦<br>
+                FRESH DAILY
+            </div>
+
+            <div class="floating-card">
+                <div class="stars">★★★★★</div>
+                <strong>From our kitchen to your table</strong>
+                <small>Homemade · Fresh · Full of flavour</small>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- WHY US -->
+
+<section>
+    <div class="container">
+
+        <div class="section-head">
+            <div>
+                <div class="eyebrow">Why Ambreen Kitchen?</div>
+                <h2>Simple food.<br>Made with heart.</h2>
+            </div>
+
+            <p>
+                From daal chawal to biryani, pasta and sabzi,
+                enjoy familiar flavours cooked in a homestyle way.
+            </p>
+        </div>
+
+        <div class="features">
+
+            <article class="feature">
+                <div class="feature-icon">♡</div>
+                <h3>Homemade Goodness</h3>
+                <p>Comforting meals inspired by Pakistani home cooking.</p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">✦</div>
+                <h3>Freshly Prepared</h3>
+                <p>Food prepared with care and traditional spices.</p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">♨</div>
+                <h3>Something for Everyone</h3>
+                <p>Chicken, beef, daal, biryani, pasta, vegetables and more.</p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOD MENU -->
+
+<section id="menu">
+<div class="container">
+
+    <div class="section-head">
+        <div>
+            <div class="eyebrow">Fresh from our kitchen</div>
+            <h2>Our Homemade Menu</h2>
+        </div>
+
+        <p>
+            Select a category to explore your favourite foods.
+            Tap Order to send an order request on WhatsApp.
+        </p>
+    </div>
+
+    <div class="menu-search">
+        <input
+            type="search"
+            id="foodSearch"
+            placeholder="Search food by name..."
+            aria-label="Search food by name"
+        >
+    </div>
+
+    <!-- FILTER BUTTONS -->
+
+    <div class="filters">
+
+        <button class="filter-btn active" data-filter="all">
+            All Food
+        </button>
+
+        <button class="filter-btn" data-filter="biryani">
+            Biryani & Pulao
+        </button>
+
+        <button class="filter-btn" data-filter="chicken">
+            Chicken
+        </button>
+
+        <button class="filter-btn" data-filter="beef">
+            Beef
+        </button>
+
+        <button class="filter-btn" data-filter="daal">
+            Daal
+        </button>
+
+        <button class="filter-btn" data-filter="vegetables">
+            Vegetables & Sabzi
+        </button>
+
+        <button class="filter-btn" data-filter="pasta">
+            Pasta & Noodles
+        </button>
+
+        <button class="filter-btn" data-filter="rice">
+            Rice & Roti
+        </button>
+
+        <button class="filter-btn" data-filter="bbq">
+            BBQ & Grill
+        </button>
+
+        <button class="filter-btn" data-filter="frozen">
+            Frozen Food
+        </button>
+
+    </div>
+
+    <p class="menu-empty" id="menuEmpty" role="status" hidden>No matching food found.</p>
+
+    <div class="menu-grid">
+
+        <!-- BIRYANI AND PULAO -->
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQniQRRIMV86kAH04-DhitfXMkkBW5vehLzionQs9WCQ&s=10"
+                alt="Chicken Biryani">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Biryani</h3>
+                    <span class="price">Rs.  1,800 / 1kg</span>
+                </div>
+                <p>Fragrant basmati rice cooked with chicken and aromatic spices.</p>
+                <div class="food-meta">
+                    <span>Biryani · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Biryani">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=800&q=80"
+                alt="Beef Biryani">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Biryani</h3>
+                    <span class="price">Rs.  3,000 / 1kg</span>
+                </div>
+                <p>Spicy beef biryani with fragrant rice and traditional masala.</p>
+                <div class="food-meta">
+                    <span>Biryani · Beef</span>
+                    <a href="#contact" class="order-link" data-order="Beef Biryani">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLmhO4CgZkIfBftH1mdQ9I7Ly7nanxrgUFVfQ595ORnQ&s=10"
+                alt="Mutton Biryani">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Mutton Biryani</h3>
+                    <span class="price">Rs. 4,000 / 1kg</span>
+                </div>
+                <p>Aromatic rice with tender mutton and rich spices.</p>
+                <div class="food-meta">
+                    <span>Biryani · Mutton</span>
+                    <a href="#contact" class="order-link" data-order="Mutton Biryani">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn91WNnYLCuzEYZUOSt9Mygkvx9a0wQLmhAjraAOVmTA&s=10"
+                alt="Sindhi Biryani">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Sindhi Biryani</h3>
+                    <span class="price">Rs.  1,000 / 1kg</span>
+                </div>
+                <p>A tangy, spicy biryani with traditional Sindhi flavours.</p>
+                <div class="food-meta">
+                    <span>Biryani · Spicy</span>
+                    <a href="#contact" class="order-link" data-order="Sindhi Biryani">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=800&q=80"
+                alt="Hyderabadi Biryani">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Hyderabadi Biryani</h3>
+                    <span class="price">Rs.  1,600 / 1kg</span>
+                </div>
+                <p>Richly spiced biryani inspired by Hyderabadi cooking.</p>
+                <div class="food-meta">
+                    <span>Biryani · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Hyderabadi Biryani">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSD0c-ggRJR35hg_kSREF0MTEh73WNi-gsVxpPcyCoU6A&s=10"
+                alt="Bombay Biryani">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Bombay Biryani</h3>
+                    <span class="price">Rs. 1,950 / 1kg</span>
+                </div>
+                <p>Traditional Bombay-style biryani with bold spices.</p>
+                <div class="food-meta">
+                    <span>Biryani · Spicy</span>
+                    <a href="#contact" class="order-link" data-order="Bombay Biryani">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8eG8v43DDk0P6T5QNmZP0q7TtUMgidrKvW9KE1VDaBA&s=10"
+                alt="Vegetable Biryani">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Vegetable Biryani</h3>
+                    <span class="price">Rs. 1,800 / 1kg</span>
+                </div>
+                <p>Flavourful rice cooked with seasonal vegetables and spices.</p>
+                <div class="food-meta">
+                    <span>Biryani · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Vegetable Biryani">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdADGS2b2_VAujYLWEoIXs9EYmg5doQ4GHO5FOrseiOQ&s=10"
+                alt="Aloo Biryani">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Aloo Ki Tandoori Biryani</h3>
+                    <span class="price">Rs. 1,000 / 1kg</span>
+                </div>
+                <p>Spiced rice with potatoes and a traditional biryani masala.</p>
+                <div class="food-meta">
+                    <span>Biryani · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Aloo Biryani">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&w=800&q=80"
+                alt="Beef Yakhni Pulao">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Yakhni Pulao</h3>
+                    <span class="price">Rs. 1,800 / 1kg</span>
+                </div>
+                <p>Aromatic rice cooked in beef stock with traditional spices.</p>
+                <div class="food-meta">
+                    <span>Pulao · Beef</span>
+                    <a href="#contact" class="order-link" data-order="Beef Yakhni Pulao">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9V7rUUp3KD96FZkflFUxSc-C1-mBQdOUOetU6kkYaWA&s=10"
+                alt="Chicken Pulao">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Pulao</h3>
+                    <span class="price">Rs. 2,800 / 1kg</span>
+                </div>
+                <p>Lightly spiced rice cooked with chicken and yakhni.</p>
+                <div class="food-meta">
+                    <span>Pulao · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Pulao">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg4Sot2hcBJJ0V3tpNHGzbFZBStiT5IjfSnNmHqPeW7Q&s=10"
+                alt="Matar Pulao">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Matar Pulao</h3>
+                    <span class="price">Rs. 1,500/ 1kg</span>
+                </div>
+                <p>Fragrant rice with green peas and mild whole spices.</p>
+                <div class="food-meta">
+                    <span>Pulao · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Matar Pulao">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVgEjODwntoh5egqn8hXTagNRe_tO8NmesaiMQNdzQQg&s=10"
+                alt="Qeema Masoor Biryani">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Qeema Masoor Biryani</h3>
+                    <span class="price">Rs. 550 / 1kg</span>
+                </div>
+                <p>Fragrant biryani rice layered with spiced minced meat and masoor lentils.</p>
+                <div class="food-meta">
+                    <span>Biryani · Beef</span>
+                    <a href="#contact" class="order-link" data-order="Qeema Masoor Biryani">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVYAPEBB_mNtPND9mjUWrKA1KDtdAdVmWOX7-hG4yUQA&s=10"
+                alt="Jheenga Biryani">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Jheenga Biryani</h3>
+                    <span class="price">Rs. 4,000 / 1kg</span>
+                </div>
+                <p>Aromatic spiced rice cooked with tender prawns.</p>
+                <div class="food-meta">
+                    <span>Biryani · Prawns</span>
+                    <a href="#contact" class="order-link" data-order="Jheenga Biryani">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="biryani">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVEue4VNeSteRYPV5V46o8to8rYjsLCXiDknqCwmbZlQ&s=10"
+                alt="Dum Biryani">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Dum Biryani</h3>
+                    <span class="price">Rs. 1,200 / 1kg</span>
+                </div>
+                <p>Slow-cooked, layered basmati rice infused with aromatic spices.</p>
+                <div class="food-meta">
+                    <span>Biryani · Dum Style</span>
+                    <a href="#contact" class="order-link" data-order="Dum Biryani">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- CHICKEN -->
+
+        <article class="food-card" data-category="chicken">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-3CdO-0b4nUAQH8lzCA0_0xmMKK8FR5kDjDJtoriUwg&s=10"
+                alt="Chicken Karahi">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Karahi</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Chicken cooked with tomatoes, ginger, green chilli and spices.</p>
+                <div class="food-meta">
+                    <span>Chicken · Karahi</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Karahi">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="chicken">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTe9uGYVYOo9mtkXqVqOtN9WrLOGSjOiguKs6EMzXaJA&s=10"
+                alt="Chicken White Karahi">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken White Karahi</h3>
+                    <span class="price">Rs. 650</span>
+                </div>
+                <p>Creamy chicken karahi with pepper, ginger and mild spices.</p>
+                <div class="food-meta">
+                    <span>Chicken · Karahi</span>
+                    <a href="#contact" class="order-link" data-order="Chicken White Karahi">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="chicken">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIenjXUmEc_JAJGBGZkE6fEmfx6P4fFs6_kFu3Vx2zgA&s=10"
+                alt="Chicken Aloo Salan">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Aloo Salan</h3>
+                    <span class="price">Rs. 550</span>
+                </div>
+                <p>Homestyle chicken and potato curry with desi spices.</p>
+                <div class="food-meta">
+                    <span>Chicken · Salan</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Aloo Salan">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="chicken">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIWgigQpWZNbdnjLgErN5R-AlwUgZcxzet0FY7dNNpA&s=10"
+                alt="Chicken Nihari">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Nihari</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Rich, slow-cooked style chicken gravy with traditional spices.</p>
+                <div class="food-meta">
+                    <span>Chicken · Curry</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Nihari">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="chicken">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt11T7x1VvkGKFgwYi-NhDMupXyO3vzHbfEGmFiYNNXw&s=10"
+                alt="Chicken Kofta">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Kofta</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Chicken meatballs cooked in a flavourful curry sauce.</p>
+                <div class="food-meta">
+                    <span>Chicken · Kofta</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Kofta">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="chicken">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPIWgigQpWZNbdnjLgErN5R-AlwUgZcxzet0FY7dNNpA&s=10"
+                alt="Chicken Korma">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Korma</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Tender chicken in a rich, creamy gravy with aromatic korma spices.</p>
+                <div class="food-meta">
+                    <span>Chicken · Korma</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Korma">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="chicken">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Haleem">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Haleem</h3>
+                    <span class="price">Rs. 550</span>
+                </div>
+                <p>Slow-cooked chicken blended with lentils, wheat and aromatic spices.</p>
+                <div class="food-meta">
+                    <span>Chicken · Haleem</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Haleem">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- BEEF -->
+
+        <article class="food-card" data-category="beef">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNCwsYof6YbgA2v4zGVhaV0aR1kJPVl4QU64pHaD5Rqw&s=10"
+                alt="Beef Aloo Gosht">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Aloo Gosht</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Traditional beef and potato curry cooked with desi spices.</p>
+                <div class="food-meta">
+                    <span>Beef · Salan</span>
+                    <a href="#contact" class="order-link" data-order="Beef Aloo Gosht">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="beef">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-Zbxk12YVgiklfeqzYWlCXegTTl6FG4A-c3RvDVIsSQ&s=10"
+                alt="Beef Qeema">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Qeema Masala</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Minced beef cooked with onions, tomatoes and spices.</p>
+                <div class="food-meta">
+                    <span>Beef · Qeema</span>
+                    <a href="#contact" class="order-link" data-order="Beef Qeema Masala">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="beef">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmWwUM5TyxU0fbrIj8SuTq9HB1voX6F6dTuwCPYCI-vQ&s=10"
+                alt="Beef Nihari">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Nihari</h3>
+                    <span class="price">Rs. 700</span>
+                </div>
+                <p>Rich beef gravy with traditional slow-cooked flavours.</p>
+                <div class="food-meta">
+                    <span>Beef · Curry</span>
+                    <a href="#contact" class="order-link" data-order="Beef Nihari">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="beef">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-3CdO-0b4nUAQH8lzCA0_0xmMKK8FR5kDjDJtoriUwg&s=10"
+                alt="Beef Karahi">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Karahi</h3>
+                    <span class="price">Rs. 700</span>
+                </div>
+                <p>Tender beef cooked in a karahi with tomatoes, ginger, green chilli and spices.</p>
+                <div class="food-meta">
+                    <span>Beef · Karahi</span>
+                    <a href="#contact" class="order-link" data-order="Beef Karahi">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="beef">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNCwsYof6YbgA2v4zGVhaV0aR1kJPVl4QU64pHaD5Rqw&s=10"
+                alt="Beef Korma">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Korma</h3>
+                    <span class="price">Rs. 700</span>
+                </div>
+                <p>Beef simmered in a rich, aromatic gravy with traditional korma spices.</p>
+                <div class="food-meta">
+                    <span>Beef · Korma</span>
+                    <a href="#contact" class="order-link" data-order="Beef Korma">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="beef">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmWwUM5TyxU0fbrIj8SuTq9HB1voX6F6dTuwCPYCI-vQ&s=10"
+                alt="Beef Paya">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Paya</h3>
+                    <span class="price">Rs. 750</span>
+                </div>
+                <p>Slow-cooked beef trotters in a rich, warming broth with traditional spices.</p>
+                <div class="food-meta">
+                    <span>Beef · Paya</span>
+                    <a href="#contact" class="order-link" data-order="Beef Paya">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="beef">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80"
+                alt="Beef Haleem">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Haleem</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Slow-cooked beef blended with lentils, wheat and aromatic spices.</p>
+                <div class="food-meta">
+                    <span>Beef · Haleem</span>
+                    <a href="#contact" class="order-link" data-order="Beef Haleem">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="beef">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt11T7x1VvkGKFgwYi-NhDMupXyO3vzHbfEGmFiYNNXw&s=10"
+                alt="Beef Kofta">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Kofta</h3>
+                    <span class="price">Rs. 650</span>
+                </div>
+                <p>Spiced beef meatballs simmered in a flavourful curry sauce.</p>
+                <div class="food-meta">
+                    <span>Beef · Kofta</span>
+                    <a href="#contact" class="order-link" data-order="Beef Kofta">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="beef">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Beef Chapli Kabab">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Chapli Kabab</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Pashtun-style minced beef patties seasoned with herbs and spices.</p>
+                <div class="food-meta">
+                    <span>Beef · Kabab</span>
+                    <a href="#contact" class="order-link" data-order="Beef Chapli Kabab">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="beef">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Beef Seekh Kabab">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Seekh Kabab</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Minced beef skewers seasoned with traditional herbs and spices.</p>
+                <div class="food-meta">
+                    <span>Beef · BBQ</span>
+                    <a href="#contact" class="order-link" data-order="Beef Seekh Kabab">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- DAAL -->
+
+        <article class="food-card" data-category="daal">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxyc2i1nivxdcn5IwgdHbTafdcFXrop3cpIepYm-lg1g&s=10"
+                alt="Daal Masoor">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Daal Masoor</h3>
+                    <span class="price">Rs. 350</span>
+                </div>
+                <p>Red lentils with traditional desi masala tadka.</p>
+                <div class="food-meta">
+                    <span>Daal · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Daal Masoor">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="daal">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkfX3uYBXm7gCKdtn3mHVbzu2tU4dVQY3WxNI_KRfYwg&s=10"
+                alt="Chana Daal">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chana Daal</h3>
+                    <span class="price">Rs. 350</span>
+                </div>
+                <p>Yellow split chickpeas cooked with homestyle spices.</p>
+                <div class="food-meta">
+                    <span>Daal · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Chana Daal">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="daal">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQatSJ9rK6NT9CdEF2n5SW-xmd6QZNifojGZn72_Rgnsg&s=10"
+                alt="Daal Mash">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Daal Mash</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>White lentils cooked with ginger, garlic and desi masala.</p>
+                <div class="food-meta">
+                    <span>Daal · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Daal Mash">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="daal">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8hIzM8rImo4YJIWWGE6zRVX3kdo9ZW90SN-xJ8xzPZg&s=10"
+                alt="Kali Daal">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Kali Daal</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Black lentils simmered with aromatic spices and a rich desi tadka.</p>
+                <div class="food-meta">
+                    <span>Daal · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Kali Daal">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="daal">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9q_NT8h0Bb-p7CMqFFzlUfOvHLQF0MLq_IoiShw2WVg&s=10"
+                alt="Mix Daal">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Mix Daal</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>A comforting mix of lentils with aromatic spices.</p>
+                <div class="food-meta">
+                    <span>Daal · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Mix Daal">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="daal">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH5N48-Y-gqpeT7k2Kx05g1Btd-UJcYrR7H-dEXSbCpQ&s=10"
+                alt="Daal Palak">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Daal Palak</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Lentils and spinach cooked together with desi spices.</p>
+                <div class="food-meta">
+                    <span>Daal · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Daal Palak">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="daal">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9q_NT8h0Bb-p7CMqFFzlUfOvHLQF0MLq_IoiShw2WVg&s=10"
+                alt="Achari Daal">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Achari Daal</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Lentils cooked with tangy achari spices and a traditional pickle-style flavour.</p>
+                <div class="food-meta">
+                    <span>Daal · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Achari Daal">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="daal">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmgF1JasK-tTD9faskRCymzGjjMbAheKbTKO_2FExmMw&s=10"
+                alt="Masoor Khari Daal">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Masoor Khari Daal</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Whole masoor lentils cooked with traditional spices and a flavourful desi tadka.</p>
+                <div class="food-meta">
+                    <span>Daal · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Masoor Khari Daal">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- VEGETABLES -->
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Bhindi Masala">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Bhindi Masala</h3>
+                    <span class="price">Rs. 450</span>
+                </div>
+                <p>Okra cooked with onions, tomatoes and traditional spices.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Bhindi Masala">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Aloo Matar">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Aloo Matar</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Potatoes and green peas cooked in a homestyle curry.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Aloo Matar">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Aloo Gobi">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Aloo Gobi</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Potatoes and cauliflower cooked with turmeric and spices.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Aloo Gobi">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Seasonal Sabzi">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Seasonal Sabzi</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Fresh seasonal vegetables prepared in a homestyle way.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Seasonal Sabzi">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Karela Masala">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Karela Masala</h3>
+                    <span class="price">Rs. 450</span>
+                </div>
+                <p>Bitter gourd cooked with onions and a balanced masala.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Karela Masala">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Lobia Masala">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Lobia Masala</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Lobia beans simmered in a traditional tomato masala.</p>
+                <div class="food-meta">
+                    <span>Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Lobia Masala">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Palak Paneer">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Palak Paneer</h3>
+                    <span class="price">Rs. 500</span>
+                </div>
+                <p>Soft paneer cooked in a spiced spinach gravy.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Palak Paneer">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Baingan Bharta">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Baingan Bharta</h3>
+                    <span class="price">Rs. 450</span>
+                </div>
+                <p>Smoky mashed eggplant cooked with tomatoes, onions and spices.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Baingan Bharta">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Aloo Baingan">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Aloo Baingan</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Potatoes and eggplant cooked together in a homestyle masala.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Aloo Baingan">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Aloo Palak">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Aloo Palak</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Potatoes and spinach seasoned with garlic and traditional spices.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Aloo Palak">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Tinda Masala">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Tinda Masala</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Indian round gourd cooked with onions, tomatoes and desi spices.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Tinda Masala">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Lauki Masala">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Lauki Masala</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Bottle gourd cooked until tender in a lightly spiced curry.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Lauki Masala">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Tori Masala">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Tori Masala</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Ridge gourd cooked with onions, tomatoes and homestyle spices.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Tori Masala">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Gobi Masala">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Gobi Masala</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Cauliflower florets cooked with tomatoes and aromatic spices.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Gobi Masala">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="vegetables">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Mix Sabzi">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Mix Sabzi</h3>
+                    <span class="price">Rs. 450</span>
+                </div>
+                <p>A colourful mix of seasonal vegetables cooked with desi masala.</p>
+                <div class="food-meta">
+                    <span>Sabzi · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Mix Sabzi">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- PASTA AND NOODLES -->
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Alfredo Pasta">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Alfredo Pasta</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Creamy white sauce pasta with chicken and herbs.</p>
+                <div class="food-meta">
+                    <span>Pasta · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Alfredo Pasta">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Tikka Pasta">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Tikka Pasta</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Pasta tossed with spicy chicken tikka, peppers and a creamy sauce.</p>
+                <div class="food-meta">
+                    <span>Pasta · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Tikka Pasta">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80"
+                alt="Mac and Cheese">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Mac and Cheese</h3>
+                    <span class="price">Rs. 500</span>
+                </div>
+                <p>Macaroni baked in a creamy cheese sauce.</p>
+                <div class="food-meta">
+                    <span>Pasta · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Mac and Cheese">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+                alt="Baked Pasta">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Baked Pasta</h3>
+                    <span class="price">Rs. 550</span>
+                </div>
+                <p>Oven-baked pasta layered with tomato sauce, herbs and melted cheese.</p>
+                <div class="food-meta">
+                    <span>Pasta · Baked</span>
+                    <a href="#contact" class="order-link" data-order="Baked Pasta">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+                alt="Lasagna">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Lasagna</h3>
+                    <span class="price">Rs. 650</span>
+                </div>
+                <p>Oven-baked pasta sheets layered with savoury sauce and cheese.</p>
+                <div class="food-meta">
+                    <span>Pasta · Baked</span>
+                    <a href="#contact" class="order-link" data-order="Lasagna">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+                alt="Red Sauce Pasta">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Red Sauce Pasta</h3>
+                    <span class="price">Rs. 550</span>
+                </div>
+                <p>Pasta tossed in tomato sauce with chicken and herbs.</p>
+                <div class="food-meta">
+                    <span>Pasta · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Red Sauce Pasta">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80"
+                alt="White Sauce Pasta">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>White Sauce Pasta</h3>
+                    <span class="price">Rs. 500</span>
+                </div>
+                <p>Creamy pasta with a smooth white sauce and herbs.</p>
+                <div class="food-meta">
+                    <span>Pasta · Creamy</span>
+                    <a href="#contact" class="order-link" data-order="White Sauce Pasta">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+                alt="Vegetable Pasta">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Vegetable Pasta</h3>
+                    <span class="price">Rs. 450</span>
+                </div>
+                <p>Pasta mixed with vegetables and a flavourful sauce.</p>
+                <div class="food-meta">
+                    <span>Pasta · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Vegetable Pasta">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80"
+                alt="Macaroni Masala">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Macaroni Masala</h3>
+                    <span class="price">Rs. 450</span>
+                </div>
+                <p>Desi-style macaroni cooked with vegetables and spices.</p>
+                <div class="food-meta">
+                    <span>Macaroni</span>
+                    <a href="#contact" class="order-link" data-order="Macaroni Masala">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+                alt="Spaghetti Bolognese">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Spaghetti Bolognese</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Spaghetti served with a rich minced-meat tomato sauce.</p>
+                <div class="food-meta">
+                    <span>Spaghetti · Beef</span>
+                    <a href="#contact" class="order-link" data-order="Spaghetti Bolognese">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=80"
+                alt="Penne Arrabbiata">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Penne Arrabbiata</h3>
+                    <span class="price">Rs. 500</span>
+                </div>
+                <p>Penne pasta in a spicy tomato and garlic sauce.</p>
+                <div class="food-meta">
+                    <span>Pasta · Spicy</span>
+                    <a href="#contact" class="order-link" data-order="Penne Arrabbiata">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Chow Mein">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Chow Mein</h3>
+                    <span class="price">Rs. 500</span>
+                </div>
+                <p>Noodles tossed with chicken, vegetables and savoury sauce.</p>
+                <div class="food-meta">
+                    <span>Noodles · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Chow Mein">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+                alt="Vegetable Chow Mein">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Vegetable Chow Mein</h3>
+                    <span class="price">Rs. 450</span>
+                </div>
+                <p>Stir-fried noodles with fresh vegetables and savoury sauce.</p>
+                <div class="food-meta">
+                    <span>Noodles · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Vegetable Chow Mein">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Hakka Noodles">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Hakka Noodles</h3>
+                    <span class="price">Rs. 550</span>
+                </div>
+                <p>Wok-tossed noodles with chicken, vegetables and Indo-Chinese spices.</p>
+                <div class="food-meta">
+                    <span>Noodles · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Hakka Noodles">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="pasta">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Khaosa">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Khaosa (Khow Suey)</h3>
+                    <span class="price">Rs. 650</span>
+                </div>
+                <p>Coconut curry with chicken and noodles, served with crunchy toppings.</p>
+                <div class="food-meta">
+                    <span>Noodles · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Khaosa (Khow Suey)">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- RICE AND ROTI -->
+
+        <article class="food-card" data-category="rice">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80"
+                alt="Plain Rice">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Plain Rice</h3>
+                    <span class="price">Rs. 150</span>
+                </div>
+                <p>Simple, fluffy rice to enjoy with daal or salan.</p>
+                <div class="food-meta">
+                    <span>Rice · Side</span>
+                    <a href="#contact" class="order-link" data-order="Plain Rice">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="rice">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=800&q=80"
+                alt="Vegetable Fried Rice">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Vegetable Fried Rice</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Rice stir-fried with vegetables and savoury seasoning.</p>
+                <div class="food-meta">
+                    <span>Rice · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Vegetable Fried Rice">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="rice">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1600628422019-6b3e3b5c1b50?auto=format&fit=crop&w=800&q=80"
+                alt="Chapati">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chapati</h3>
+                    <span class="price">Rs. 50 / 2</span>
+                </div>
+                <p>Soft homemade chapati, perfect with curry and daal.</p>
+                <div class="food-meta">
+                    <span>Freshly made</span>
+                    <a href="#contact" class="order-link" data-order="Chapati">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- BBQ -->
+
+        <article class="food-card" data-category="bbq">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Tikka">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Tikka</h3>
+                    <span class="price">Rs. 500</span>
+                </div>
+                <p>Spiced chicken grilled for a smoky, savoury flavour.</p>
+                <div class="food-meta">
+                    <span>BBQ · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Tikka">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="bbq">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Malai Boti">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Malai Boti</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Tender chicken pieces marinated in a creamy seasoning.</p>
+                <div class="food-meta">
+                    <span>BBQ · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Malai Boti">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="bbq">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Seekh Kabab">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Seekh Kabab</h3>
+                    <span class="price">Rs. 500</span>
+                </div>
+                <p>Traditional minced-meat kababs seasoned with desi spices.</p>
+                <div class="food-meta">
+                    <span>BBQ · Kabab</span>
+                    <a href="#contact" class="order-link" data-order="Seekh Kabab">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="bbq">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Malai Tikka">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Malai Tikka</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Juicy chicken pieces marinated with cream, herbs and mild spices, then grilled.</p>
+                <div class="food-meta">
+                    <span>BBQ · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Malai Tikka">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="bbq">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Boti">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Boti</h3>
+                    <span class="price">Rs. 550</span>
+                </div>
+                <p>Boneless chicken chunks marinated in a traditional spicy BBQ seasoning.</p>
+                <div class="food-meta">
+                    <span>BBQ · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Boti">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="bbq">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Bihari Boti">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Bihari Boti</h3>
+                    <span class="price">Rs. 650</span>
+                </div>
+                <p>Thin slices of beef marinated with Bihari spices and grilled until tender.</p>
+                <div class="food-meta">
+                    <span>BBQ · Beef</span>
+                    <a href="#contact" class="order-link" data-order="Bihari Boti">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="bbq">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Gola Kabab">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Gola Kabab</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Soft, flavourful minced beef kababs seasoned with aromatic spices.</p>
+                <div class="food-meta">
+                    <span>BBQ · Beef</span>
+                    <a href="#contact" class="order-link" data-order="Gola Kabab">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="bbq">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Tandoori Chicken">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Tandoori Chicken</h3>
+                    <span class="price">Rs. 650</span>
+                </div>
+                <p>Chicken marinated in yoghurt and tandoori spices, then roasted until smoky.</p>
+                <div class="food-meta">
+                    <span>BBQ · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Tandoori Chicken">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="bbq">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Fish Tikka">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Fish Tikka</h3>
+                    <span class="price">Rs. 700</span>
+                </div>
+                <p>Fish pieces marinated with lemon and spices, grilled to a tender finish.</p>
+                <div class="food-meta">
+                    <span>BBQ · Fish</span>
+                    <a href="#contact" class="order-link" data-order="Fish Tikka">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- FROZEN FOOD -->
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+                alt="Frozen Samosa">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Frozen Samosa</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Ready-to-fry pastry pockets filled with spiced potatoes.</p>
+                <div class="food-meta">
+                    <span>Frozen · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Frozen Samosa">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Spring Rolls">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Spring Rolls</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Crispy rolls filled with seasoned chicken, ready to fry.</p>
+                <div class="food-meta">
+                    <span>Frozen · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Spring Rolls">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Nuggets">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Nuggets</h3>
+                    <span class="price">Rs. 700</span>
+                </div>
+                <p>Golden, bite-sized chicken nuggets, ready to cook from frozen.</p>
+                <div class="food-meta">
+                    <span>Frozen · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Nuggets">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Shami Kebabs">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Shami Kebabs</h3>
+                    <span class="price">Rs. 800</span>
+                </div>
+                <p>Traditional spiced meat patties, prepared and frozen for convenience.</p>
+                <div class="food-meta">
+                    <span>Frozen · Beef</span>
+                    <a href="#contact" class="order-link" data-order="Shami Kebabs">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Samosa">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Samosa</h3>
+                    <span class="price">Rs. 500</span>
+                </div>
+                <p>Ready-to-fry pastry filled with seasoned chicken.</p>
+                <div class="food-meta">
+                    <span>Frozen · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Samosa">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+                alt="Vegetable Spring Rolls">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Vegetable Spring Rolls</h3>
+                    <span class="price">Rs. 450</span>
+                </div>
+                <p>Crispy rolls filled with seasoned vegetables, ready to fry.</p>
+                <div class="food-meta">
+                    <span>Frozen · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Vegetable Spring Rolls">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Cheese Rolls">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Cheese Rolls</h3>
+                    <span class="price">Rs. 600</span>
+                </div>
+                <p>Chicken and cheese wrapped in crisp pastry, ready to fry.</p>
+                <div class="food-meta">
+                    <span>Frozen · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Cheese Rolls">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Chicken Seekh Kebabs">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Chicken Seekh Kebabs</h3>
+                    <span class="price">Rs. 750</span>
+                </div>
+                <p>Spiced minced chicken kebabs, prepared and frozen for easy cooking.</p>
+                <div class="food-meta">
+                    <span>Frozen · Chicken</span>
+                    <a href="#contact" class="order-link" data-order="Chicken Seekh Kebabs">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Beef Chapli Kebabs">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Chapli Kebabs</h3>
+                    <span class="price">Rs. 800</span>
+                </div>
+                <p>Pashtun-style minced beef patties, ready to pan-fry from frozen.</p>
+                <div class="food-meta">
+                    <span>Frozen · Beef</span>
+                    <a href="#contact" class="order-link" data-order="Beef Chapli Kebabs">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+                alt="Aloo Paratha">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Aloo Paratha</h3>
+                    <span class="price">Rs. 350</span>
+                </div>
+                <p>Whole-wheat flatbread stuffed with spiced potatoes, ready to cook.</p>
+                <div class="food-meta">
+                    <span>Frozen · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Aloo Paratha">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+                alt="Plain Paratha">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Plain Paratha</h3>
+                    <span class="price">Rs. 250</span>
+                </div>
+                <p>Layered whole-wheat parathas, prepared frozen for quick cooking.</p>
+                <div class="food-meta">
+                    <span>Frozen · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Plain Paratha">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Beef Kofta">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Beef Kofta</h3>
+                    <span class="price">Rs. 700</span>
+                </div>
+                <p>Seasoned beef meatballs, prepared frozen and ready for curry.</p>
+                <div class="food-meta">
+                    <span>Frozen · Beef</span>
+                    <a href="#contact" class="order-link" data-order="Beef Kofta">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80"
+                alt="Fish Fingers">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Fish Fingers</h3>
+                    <span class="price">Rs. 700</span>
+                </div>
+                <p>Crumb-coated fish fingers, ready to fry until crisp and golden.</p>
+                <div class="food-meta">
+                    <span>Frozen · Fish</span>
+                    <a href="#contact" class="order-link" data-order="Fish Fingers">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="food-card" data-category="frozen">
+            <div class="food-image">
+                <img loading="lazy"
+                src="https://images.unsplash.com/photo-1518013431117-eb1465fa5752?auto=format&fit=crop&w=800&q=80"
+                alt="Frozen French Fries">
+            </div>
+            <div class="food-info">
+                <div class="food-top">
+                    <h3>Frozen French Fries</h3>
+                    <span class="price">Rs. 400</span>
+                </div>
+                <p>Cut potatoes, prepped and frozen for easy frying or baking.</p>
+                <div class="food-meta">
+                    <span>Frozen · Vegetarian</span>
+                    <a href="#contact" class="order-link" data-order="Frozen French Fries">Order ↗</a>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <p class="note">
+        Note: Menu items and prices are sample content.
+        Please update them according to your actual daily menu.
+    </p>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+    <div class="container story-grid">
+
+        <div class="story-photo">
+            <img
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=85"
+            alt="Home kitchen">
+        </div>
+
+        <div class="story-copy">
+            <div class="eyebrow">From our home kitchen</div>
+
+            <h2>Ghar ka zaiqa, har niwalay mein.</h2>
+
+            <p>
+                Ambreen Kitchen brings you the comfort of homemade
+                Pakistani food. From daal and seasonal sabzi to
+                chicken, beef, biryani and pasta, our menu celebrates
+                familiar flavours made with care.
+            </p>
+
+            <ul class="check-list">
+                <li>Homemade Pakistani meals</li>
+                <li>Fresh daily menu options</li>
+                <li>Chicken, beef, daal and vegetables</li>
+                <li>Order through WhatsApp</li>
+            </ul>
+
+            <a href="#contact" class="btn btn-outline">
+                Contact Ambreen Kitchen ↗
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+    <div class="container">
+
+        <div class="contact-panel">
+
+            <div>
+                <h2>Order Homemade Food.</h2>
+
+                <p>
+                    Contact Ambreen Kitchen on WhatsApp to ask about
+                    today's menu, prices, pickup and delivery in Karachi.
+                </p>
+            </div>
+
+            <a
+            class="btn"
+            href="https://wa.me/923022830894?text=Assalam-o-Alaikum%20Ambreen%20Kitchen%2C%20please%20share%20today%27s%20menu."
+            target="_blank"
+            rel="noopener noreferrer">
+                WhatsApp to Order ↗
+            </a>
+
+        </div>
+
+        <p class="note">
+            WhatsApp: +92 302 2830894
+        </p>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container footer-inner">
+
+        <strong>AMBREEN KITCHEN · Homemade Pakistani Food</strong>
+
+        <span>
+            © <span id="year"></span> Ambreen Kitchen
+        </span>
+
+        <a href="#home" class="to-top">
+            Back to top ↑
+        </a>
+
+    </div>
+</footer>
+
+<script>
+
+// FOOD CATEGORY FILTERS
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const foodCards = document.querySelectorAll(".food-card");
+const foodSearch = document.getElementById("foodSearch");
+const menuEmpty = document.getElementById("menuEmpty");
+let selectedCategory = "all";
+
+function updateFoodResults() {
+    const searchTerm = foodSearch.value.trim().toLowerCase();
+    let visibleCards = 0;
+
+    foodCards.forEach(card => {
+        const matchesCategory =
+            selectedCategory === "all" ||
+            card.dataset.category === selectedCategory;
+        const foodName = card.querySelector("h3").textContent.toLowerCase();
+        const matchesSearch = foodName.includes(searchTerm);
+        const isVisible = matchesCategory && matchesSearch;
+
+        card.hidden = !isVisible;
+        visibleCards += Number(isVisible);
+    });
+
+    menuEmpty.hidden = visibleCards > 0;
+}
+
+foodSearch.addEventListener("input", updateFoodResults);
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        selectedCategory = button.dataset.filter;
+
+        filterButtons.forEach(item => {
+
+            item.classList.toggle("active", item === button);
+
+        });
+
+        updateFoodResults();
+
+    });
+
+});
+
+
+// MOBILE NAVIGATION
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+
+    const isOpen = navLinks.classList.toggle("open");
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+    );
+
+    menuToggle.textContent = isOpen ? "✕ Close" : "☰ Menu";
+
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navLinks.classList.remove("open");
+
+        menuToggle.setAttribute("aria-expanded", "false");
+
+        menuToggle.textContent = "☰ Menu";
+
+    });
+
+});
+
+
+// WHATSAPP ORDER BUTTONS
+
+const whatsappNumber = "923022830894";
+
+document.querySelectorAll("[data-order]").forEach(link => {
+
+    link.addEventListener("click", event => {
+
+        event.preventDefault();
+
+        const foodName = link.dataset.order;
+
+        const message =
+            `Assalam-o-Alaikum Ambreen Kitchen! ` +
+            `I want to order ${foodName}. ` +
+            `Please confirm today's availability, price and delivery details.`;
+
+        const whatsappURL =
+            `https://wa.me/${whatsappNumber}?text=` +
+            encodeURIComponent(message);
+
+        window.open(
+            whatsappURL,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    });
+
+});
+
+
+// CURRENT YEAR
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
